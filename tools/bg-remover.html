@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Remove background from images using U2Net AI. Free, high-quality, and runs fully in your browser. Perfect for products, people, and logos.">
+
+<meta property="og:title" content="Background Remover — Free AI Tool">
+<meta property="og:description" content="Remove image background instantly using AI (U2Net). No upload, 100% secure.">
+<meta property="og:url" content="https://pixelprotools.com/tools/bg-remover.html">
+  <title>Background Remover - PixelProTools</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">PixelProTools</div>
+  </header>
+
+  <section class="tool-container">
+    <h1>Background Remover</h1>
+    <p>Remove background from photos (best for people). Runs in browser using TensorFlow.js BodyPix model.</p>
+
+    <div class="upload-box" id="uploadBox" tabindex="0" role="button">
+      <p id="uploadText">Click or Drag & Drop Image Here</p>
+      <input type="file" id="imageInput" accept="image/*" aria-label="Upload image">
+      <div id="uploadError" class="upload-error" aria-live="polite"></div>
+    </div>
+
+    <div id="controls" class="hidden">
+      <div class="row">
+        <label>Segmentation quality</label>
+        <select id="qualitySelect">
+          <option value="low">Low (fast)</option>
+          <option value="medium" selected>Medium</option>
+          <option value="high">High (slower)</option>
+        </select>
+      </div>
+
+      <div class="row-inline">
+        <button id="removeBtn" class="cta">Remove Background</button>
+        <button id="previewBtn" class="cta outline">Preview Mask</button>
+        <button id="resetBtn" class="cta outline">Reset</button>
+      </div>
+    </div>
+
+    <div id="resultSection" class="hidden result-box">
+      <h3>Result (PNG)</h3>
+      <canvas id="outputCanvas"></canvas>
+      <div class="meta" id="metaInfo"></div>
+      <div style="margin-top:12px;">
+        <button id="downloadBtn" class="cta">Download PNG (transparent)</button>
+      </div>
+    </div>
+
+    <div id="loadingStatus" style="margin-top:12px;color:#444;"></div>
+  </section>
+
+  <!-- TensorFlow.js and BodyPix -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.12.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/body-pix@2.0.5/dist/body-pix.min.js"></script>
+
+  <script src="../js/bgremover.js"></script>
+</body>
+</html>
+<!--                 <p>Convert images to PDF format.</p>
+ -->

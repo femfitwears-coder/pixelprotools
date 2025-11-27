@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Convert JPG, PNG, WEBP images to PDF instantly. Combine multiple images into a single PDF. 100% browser-based.">
+
+<meta property="og:title" content="Image to PDF Converter — Free Online">
+<meta property="og:description" content="Convert images into a single PDF file. No upload needed.">
+<meta property="og:url" content="https://pixelprotools.com/tools/image-to-pdf.html">
+  <title>Image → PDF - PixelProTools</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">PixelProTools</div>
+  </header>
+
+  <section class="tool-container">
+    <h1>Image → PDF</h1>
+    <p>Upload one or more images and convert them into a single PDF file in the browser.</p>
+
+    <div class="upload-box" id="uploadBox" tabindex="0" role="button">
+      <p id="uploadText">Click or Drag & Drop Images Here (you can select multiple)</p>
+      <input type="file" id="imageInput" accept="image/*" multiple aria-label="Upload images">
+      <div id="uploadError" class="upload-error" aria-live="polite"></div>
+    </div>
+
+    <div id="filesList" class="hidden result-box">
+      <h3>Selected Images</h3>
+      <div id="thumbs" class="thumbs-grid"></div>
+      <div class="row-inline" style="margin-top:12px;">
+        <button id="makePdfBtn" class="cta">Create PDF</button>
+        <button id="clearBtn" class="cta outline">Clear</button>
+      </div>
+      <div id="pdfMeta" style="margin-top:10px;color:#444;"></div>
+    </div>
+
+    <div id="resultSection" class="hidden result-box">
+      <h3>PDF Ready</h3>
+      <p id="pdfInfo"></p>
+      <a id="downloadLink" class="cta" href="#" download="images.pdf">Download PDF</a>
+    </div>
+
+  </section>
+
+  <!-- jspdf CDN (required) then tool JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="../js/imagetopdf.js"></script>
+</body>
+</html>

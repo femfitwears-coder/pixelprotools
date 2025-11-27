@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>U2Net Background Remover - PixelProTools</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    /* small tool-specific overrides */
+    #outputCanvas { width:100%; max-width:700px; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,.06); }
+    .upload-error { color: #b91c1c; margin-top: 8px; display: none; font-size: 14px; }
+    .controls-row { display:flex; gap:10px; align-items:center; margin-top:12px; flex-wrap:wrap;}
+    .small-note { color:#666; font-size:13px; margin-top:8px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">PixelProTools</div>
+  </header>
+
+  <section class="tool-container">
+    <h1>Background Remover (U²-Net, client-side)</h1>
+    <p>High-quality background removal fully in the browser. No API key, no uploads. (Model downloads to your browser once.)</p>
+
+    <div class="upload-box" id="uploadBox" tabindex="0" role="button">
+      <p id="uploadText">Click or Drag & Drop Image Here</p>
+      <input type="file" id="imageInput" accept="image/*" aria-label="Upload image">
+      <div id="uploadError" class="upload-error" aria-live="polite"></div>
+    </div>
+
+    <div id="controls" class="hidden">
+      <div class="controls-row">
+        <label>Model:
+          <select id="modelSelect">
+            <option value="/models/u2net.onnx">u2net (full) — best quality (big)</option>
+            <option value="/models/u2netp.onnx">u2netp — smaller, faster</option>
+            <option value="/models/u2net-lite.onnx">u2net-lite — fastest (light)</option>
+          </select>
+        </label>
+
+        <button id="loadModelBtn" class="cta">Load Model</button>
+        <button id="removeBtn" class="cta" disabled>Remove Background</button>
+        <button id="resetBtn" class="cta outline">Reset</button>
+      </div>
+
+      <div class="small-note">
+        Tip: If model file is large, use u2netp/u2net-lite. Place model files inside <code>/models/</code> (see README).
+      </div>
+    </div>
+
+    <div id="resultSection" class="hidden result-box">
+      <h3>Result (PNG)</h3>
+      <canvas id="outputCanvas"></canvas>
+      <div class="meta" id="metaInfo"></div>
+      <div style="margin-top:12px;">
+        <button id="downloadBtn" class="cta">Download PNG (transparent)</button>
+      </div>
+    </div>
+
+    <div id="loadingStatus" style="margin-top:12px;color:#444;"></div>
+  </section>
+
+  <!-- ONNX Runtime Web (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+
+  <script src="../js/u2net_bgremover.js"></script>
+</body>
+</html>
+<!--                 <p>Convert images to PDF format.</p>
+ -->

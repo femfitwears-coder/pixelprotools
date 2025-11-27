@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Crop images online with free cropping tool. Choose aspect ratio, resize crop box, and download high-quality cropped images.">
+
+<meta property="og:title" content="Free Online Image Crop Tool">
+<meta property="og:description" content="Crop images instantly with aspect ratios including 1:1, 16:9, 4:3.">
+<meta property="og:url" content="https://pixelprotools.com/tools/crop-tool.html">
+  <title>Image Crop Tool - PixelProTools</title>
+
+  <!-- Cropper.js CSS (CDN) -->
+  <link  href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .crop-wrap { max-width:900px; margin:18px auto; display:flex; gap:20px; flex-wrap:wrap; align-items:flex-start; }
+    .crop-left { flex:1 1 520px; background:#fff; padding:12px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,.06); text-align:center; }
+    .crop-right { width:300px; min-width:220px; background:#fff; padding:12px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,.04); }
+    .preview-box { width:100%; height:320px; display:flex; align-items:center; justify-content:center; background:#f8fafc; border-radius:8px; overflow:hidden; }
+    .preview-box img { max-width:100%; max-height:100%; display:block; }
+    .small { font-size:13px; color:#555; margin-top:8px; }
+    .control-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">PixelProTools</div>
+  </header>
+
+  <section class="tool-container">
+    <h1>Image Crop Tool</h1>
+    <p>Upload an image, draw/adjust crop area, choose aspect ratio and download the cropped image.</p>
+
+    <div class="upload-box" id="uploadBox" tabindex="0" role="button">
+      <p id="uploadText">Click or Drag & Drop Image Here</p>
+      <input type="file" id="imageInput" accept="image/*" aria-label="Upload image">
+      <div id="uploadError" class="upload-error" aria-live="polite"></div>
+    </div>
+
+    <div id="cropInterface" class="hidden" style="margin-top:18px;">
+      <div class="crop-wrap">
+        <div class="crop-left">
+          <div class="preview-box">
+            <img id="imagePreview" src="" alt="To crop">
+          </div>
+          <div class="small">Use mouse / touch to move or resize crop box.</div>
+        </div>
+
+        <div class="crop-right">
+          <div>
+            <label>Aspect ratio</label>
+            <select id="aspectSelect" style="width:100%; padding:8px; border-radius:8px; border:1px solid #e5e7eb; margin-top:8px;">
+              <option value="NaN">Free</option>
+              <option value="1">1:1 (Square)</option>
+              <option value="16/9">16:9</option>
+              <option value="4/3">4:3</option>
+              <option value="3/4">3:4</option>
+            </select>
+          </div>
+
+          <div class="control-row">
+            <button id="cropBtn" class="cta">Crop & Download</button>
+            <button id="getDataBtn" class="cta outline">Preview</button>
+          </div>
+
+          <div style="margin-top:12px;">
+            <label>Output filename</label>
+            <input id="outFilename" type="text" placeholder="cropped.png" style="width:100%; padding:8px; border-radius:8px; border:1px solid #e5e7eb; margin-top:6px;">
+          </div>
+
+          <div id="smallPreview" style="margin-top:12px;">
+            <!-- small preview appears here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cropper.js JS (CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+
+  <script src="../js/croptool.js"></script>
+</body>
+</html>

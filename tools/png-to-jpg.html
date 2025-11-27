@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Convert PNG images to JPG format instantly. Fast, free, and browser-based converter with adjustable quality.">
+
+<meta property="og:title" content="PNG to JPG Converter — Free Tool">
+<meta property="og:description" content="Convert PNG files to JPG in seconds with adjustable quality.">
+<meta property="og:url" content="https://pixelprotools.com/tools/png-to-jpg.html">
+  <title>PNG → JPG - PixelProTools</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">PixelProTools</div>
+  </header>
+
+  <section class="tool-container">
+    <h1>PNG → JPG Converter</h1>
+    <p>Convert PNG (with transparency) to JPG. Transparent areas will be filled with white by default.</p>
+
+    <div class="upload-box" id="uploadBox" tabindex="0" role="button">
+      <p id="uploadText">Click or Drag & Drop Image Here (PNG preferred)</p>
+      <input type="file" id="imageInput" accept="image/*" aria-label="Upload image">
+      <div id="uploadError" class="upload-error" aria-live="polite"></div>
+    </div>
+
+    <div id="options" class="hidden">
+      <div class="row">
+        <label>Output filename</label>
+        <input type="text" id="filenameInput" placeholder="image.jpg">
+      </div>
+
+      <div class="row">
+        <label>Quality (0.1 - 1)</label>
+        <input type="number" id="qualityInput" min="0.1" max="1" step="0.1" value="0.9">
+      </div>
+
+      <div class="row-inline">
+        <label><input type="checkbox" id="fillWhite" checked> Fill transparent area with white</label>
+      </div>
+
+      <div class="row-inline">
+        <button id="convertBtn" class="cta">Convert to JPG</button>
+        <button id="resetBtn" class="cta outline">Reset</button>
+      </div>
+    </div>
+
+    <div id="resultSection" class="hidden result-box">
+      <h3>JPG Result</h3>
+      <img id="previewImage" src="" alt="Preview">
+      <div class="meta" id="metaInfo"></div>
+      <button id="downloadBtn" class="cta">Download JPG</button>
+    </div>
+  </section>
+
+  <!-- load script at end of body -->
+  <script src="../js/pngtojpg.js"></script>
+</body>
+</html>
+<!--                 <p>Convert images to PDF format.</p>
+ -->

@@ -1,0 +1,278 @@
+/* ---------- GLOBAL STYLES ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background: #f8f9fc;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ---------- HEADER ---------- */
+
+header {
+    width: 100%;
+    padding: 18px 40px;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+    color: #3b82f6;
+}
+
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #3b82f6;
+}
+
+/* ---------- HERO SECTION ---------- */
+
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: white;
+}
+
+.hero h1 {
+    font-size: 40px;
+    font-weight: 800;
+    color: #111;
+}
+
+.hero p {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.cta {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 28px;
+    background: #3b82f6;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 18px;
+}
+.cta:hover {
+    opacity: 0.9;
+}
+
+/* ---------- TOOLS SECTION ---------- */
+
+.tools-section {
+    padding: 40px 20px;
+}
+
+.tools-section h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.tools-grid {
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    max-width: 1100px;
+    margin: auto;
+}
+
+.tool-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    transition: 0.2s;
+    border: 1px solid #e5e7eb;
+}
+
+.tool-card h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: #111;
+}
+
+.tool-card p {
+    font-size: 15px;
+    color: #555;
+}
+
+.tool-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* ---------- FOOTER ---------- */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    margin-top: 40px;
+    background: white;
+    font-size: 14px;
+}
+
+footer a {
+    color: #3b82f6;
+    text-decoration: none;
+}
+
+
+
+/* ---------- FOOTER ---------
+
+/* -------------------------------------------
+   ADD THESE NEW TOOL CSS STYLES BELOW
+-------------------------------------------- */
+
+.tool-container {
+    max-width: 600px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.upload-box {
+    background: #fff;
+    padding: 40px;
+    border: 2px dashed #3b82f6;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+.upload-box:hover {
+    background: #f1f5ff;
+}
+
+.upload-box input {
+    display: none;
+}
+
+.result-box {
+    margin-top: 30px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+}
+
+.result-box img {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.hidden {
+    display: none;
+}
+/* Resizer tool small form styles */
+.row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  margin: 12px 0;
+}
+
+.row-inline {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.row label {
+  font-weight: 600;
+  color: #222;
+}
+
+.row input[type="number"] {
+  width: 160px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.cta.outline {
+  background: transparent;
+  color: #3b82f6;
+  border: 1px solid #3b82f6;
+}
+
+.upload-box.drag {
+  background: #eef6ff;
+  border-color: #2b6ce4;
+}
+
+/* JPG→PNG tool small form styles - reuse existing tool styles */
+.row input[type="text"] {
+  width: 260px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.upload-error {
+  color: #b91c1c;
+  margin-top: 8px;
+  display: none;
+  font-size: 14px;
+}
+
+/* PNG->JPG small UI tweaks */
+.row input[type="number"] { width: 120px; padding: 8px 10px; border-radius: 8px; border: 1px solid #e5e7eb; }
+.row input[type="text"] { width: 260px; padding: 8px 10px; border-radius: 8px; border: 1px solid #e5e7eb; }
+
+/* WEBP converter small UI */
+.row select, .row input[type="text"], .row input[type="number"] {
+  width: 260px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+/* Image->PDF thumbnails */
+.thumbs-grid { display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+.thumb { width:110px; background:#fff; padding:6px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,.06); text-align:center; }
+.thumb img { width:100%; height:80px; object-fit:cover; border-radius:6px; }
+.thumb-meta { font-size:12px; color:#666; margin-top:6px; }
+
+/* -------------------------------------------
+   END OF NEW TOOL CSS STYLES
+
+/* PDF->Image thumbnails reuse thumb styles */
+.thumbs-grid { display:flex; flex-wrap:wrap; gap:12px; margin-top:10px; }
+.thumb { width:170px; background:#fff; padding:8px; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,.06); text-align:center; }
+.thumb img { width:100%; height:140px; object-fit:cover; border-radius:6px; }
+.thumb-meta { font-size:13px; color:#444; margin-top:6px; font-weight:600; }
+
+/* Background remover small styles */
+#outputCanvas { width:100%; max-width:700px; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,.06); }
+.upload-error { color: #b91c1c; margin-top: 8px; display: none; font-size: 14px; }
+
+/* crop tool small tweaks (if not present already) */
+.preview-box { min-height: 200px; }
+.hidden { display: none; }
+.upload-error { color:#b91c1c; display:none; margin-top:8px; }
+

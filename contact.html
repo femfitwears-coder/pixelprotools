@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — PixelProTools</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="public/images/favicon.png">
+</head>
+<body>
+  <header>
+    <div class="logo">PixelProTools</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="tools/compressor.html">Tools</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main style="max-width:900px;margin:30px auto;padding:20px;">
+    <h1>Contact Us</h1>
+    <p>Questions, feature requests or issues? Send us a message and we'll respond.</p>
+
+    <!-- Simple contact form (no backend). Replace action if you have a form endpoint -->
+    <form id="contactForm" method="post" action="https://formspree.io/f/yourformid">
+      <label style="display:block;margin-top:10px;">Name</label>
+      <input type="text" name="name" required style="width:100%;padding:10px;border-radius:8px;border:1px solid #e5e7eb;">
+      <label style="display:block;margin-top:10px;">Email</label>
+      <input type="email" name="email" required style="width:100%;padding:10px;border-radius:8px;border:1px solid #e5e7eb;">
+      <label style="display:block;margin-top:10px;">Message</label>
+      <textarea name="message" rows="6" required style="width:100%;padding:10px;border-radius:8px;border:1px solid #e5e7eb;"></textarea>
+      <div style="margin-top:12px;">
+        <button type="submit" class="cta">Send Message</button>
+      </div>
+      <p class="muted" style="margin-top:8px;color:#666;font-size:13px;">Tip: You can use Formspree or Netlify Forms for form handling without backend.</p>
+    </form>
+  </main>
+
+  <footer>
+    <p>© 2025 PixelProTools.com — All Rights Reserved</p>
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms</a>
+  </footer>
+</body>
+</html>

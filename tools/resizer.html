@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Resize images online instantly. Adjust width, height and aspect ratio for JPG, PNG, WEBP images. No quality loss.">
+
+<meta property="og:title" content="Free Online Image Resizer">
+<meta property="og:description" content="Resize any image in seconds. Works on PNG, JPG, WEBP.">
+<meta property="og:url" content="https://pixelprotools.com/tools/resizer.html">
+  <title>Image Resizer - PixelProTools</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+<header>
+  <div class="logo">PixelProTools</div>
+</header>
+
+<section class="tool-container">
+  <h1>Image Resizer</h1>
+  <p>Resize images to any width & height. Maintain aspect ratio if you want.</p>
+
+  <div class="upload-box" id="uploadBox">
+    <p>Click or Drag & Drop Image Here</p>
+    <input type="file" id="imageInput" accept="image/*">
+  </div>
+
+  <div id="controls" class="hidden">
+    <div class="row">
+      <label>Width (px)</label>
+      <input type="number" id="widthInput" min="1">
+    </div>
+    <div class="row">
+      <label>Height (px)</label>
+      <input type="number" id="heightInput" min="1">
+    </div>
+    <div class="row-inline">
+      <label><input type="checkbox" id="keepAspect" checked> Keep aspect ratio</label>
+    </div>
+
+    <div class="row-inline">
+      <button id="resizeBtn" class="cta">Resize Image</button>
+      <button id="resetBtn" class="cta outline">Reset</button>
+    </div>
+  </div>
+
+  <div id="resultSection" class="hidden result-box">
+    <h3>Resized Image</h3>
+    <img id="previewImage" src="" alt="Preview">
+    <div class="meta" id="metaInfo"></div>
+    <button id="downloadBtn" class="cta">Download Image</button>
+  </div>
+</section>
+
+<script src="../js/resizer.js"></script>
+</body>
+</html>

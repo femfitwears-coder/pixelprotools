@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Pick colors from any image. Extract HEX, RGB, HSL values by clicking on the image. Free browser-based color picker tool.">
+
+<meta property="og:title" content="Color Picker from Image — Free Tool">
+<meta property="og:description" content="Extract colors from images. Get HEX, RGB, HSL easily.">
+<meta property="og:url" content="https://pixelprotools.com/tools/color-picker.html">
+  <title>Color Picker - PixelProTools</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .picker-wrap { max-width:900px; margin:24px auto; display:flex; gap:20px; flex-wrap:wrap; align-items:flex-start; }
+    .picker-left { flex:1 1 520px; background:#fff; padding:16px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,.06); }
+    .picker-right { width:300px; min-width:220px; background:#fff; padding:16px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,.04); }
+    .canvas-box { width:100%; height:auto; border-radius:8px; overflow:hidden; background:#f8fafc; display:flex; justify-content:center; align-items:center; }
+    #imageCanvas { max-width:100%; display:block; cursor:crosshair; }
+    .info-row { margin-top:12px; display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+    .swatch { width:72px; height:72px; border-radius:8px; border:1px solid #e5e7eb; box-shadow:0 4px 12px rgba(0,0,0,0.04); }
+    .txt { font-size:14px; color:#333; }
+    .muted { color:#666; font-size:13px; }
+    .coord { font-family:monospace; background:#f3f4f6; padding:6px 8px; border-radius:6px; }
+    .copy-btn { padding:8px 12px; border-radius:8px; background:#3b82f6; color:white; border:none; cursor:pointer; }
+    .copy-btn.outline { background:transparent; color:#3b82f6; border:1px solid #3b82f6; }
+    .hint { font-size:13px; color:#666; margin-top:10px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">PixelProTools</div>
+  </header>
+
+  <section class="tool-container">
+    <h1>Color Picker from Image</h1>
+    <p>Upload an image, hover/click to sample color. Get HEX, RGB, HSL, coordinates and copy to clipboard.</p>
+
+    <div class="upload-box" id="uploadBox" tabindex="0" role="button">
+      <p id="uploadText">Click or Drag & Drop Image Here</p>
+      <input type="file" id="imageInput" accept="image/*" aria-label="Upload image">
+      <div id="uploadError" class="upload-error" aria-live="polite"></div>
+    </div>
+
+    <div id="pickerInterface" class="hidden" style="margin-top:18px;">
+      <div class="picker-wrap">
+        <div class="picker-left">
+          <div class="canvas-box">
+            <canvas id="imageCanvas"></canvas>
+          </div>
+          <div class="hint">Hover to preview color, click to lock sample. Use the "Copy" buttons to copy value.</div>
+        </div>
+
+        <div class="picker-right">
+          <div style="display:flex; gap:12px; align-items:center;">
+            <div id="swatch" class="swatch"></div>
+            <div>
+              <div class="txt" id="hexText">#FFFFFF</div>
+              <div class="muted" id="rgbText">rgb(255,255,255)</div>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <div class="muted">HSL</div>
+            <div class="coord" id="hslText">hsl(0,0%,100%)</div>
+            <button id="copyHsl" class="copy-btn outline">Copy HSL</button>
+          </div>
+
+          <div class="info-row">
+            <div class="muted">HEX</div>
+            <div class="coord" id="hexCoord">#FFFFFF</div>
+            <button id="copyHex" class="copy-btn">Copy HEX</button>
+          </div>
+
+          <div class="info-row">
+            <div class="muted">RGB</div>
+            <div class="coord" id="rgbCoord">255,255,255</div>
+            <button id="copyRgb" class="copy-btn outline">Copy RGB</button>
+          </div>
+
+          <div class="info-row" style="margin-top:10px;">
+            <div class="muted">Coordinates</div>
+            <div class="coord" id="coords">x:0 y:0</div>
+          </div>
+
+          <div style="margin-top:14px;">
+            <button id="downloadBtn" class="copy-btn">Download Sample</button>
+            <button id="resetBtn" class="copy-btn outline">Reset</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="../js/colorpicker.js"></script>
+</body>
+</html>

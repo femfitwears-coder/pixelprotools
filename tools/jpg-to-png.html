@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Convert JPG images to PNG format in one click. High-quality, free, fast and 100% secure browser-based JPG to PNG converter.">
+
+<meta property="og:title" content="JPG to PNG Converter — Free Online">
+<meta property="og:description" content="Convert JPG to PNG instantly without quality loss.">
+<meta property="og:url" content="https://pixelprotools.com/tools/jpg-to-png.html">
+  <title>JPG → PNG - PixelProTools</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">PixelProTools</div>
+  </header>
+
+  <section class="tool-container">
+    <h1>JPG → PNG Converter</h1>
+    <p>Convert JPG (or any image) to PNG format. Preserve quality and download instantly.</p>
+
+    <div class="upload-box" id="uploadBox" tabindex="0" role="button">
+      <p id="uploadText">Click or Drag & Drop Image Here (JPG preferred)</p>
+      <input type="file" id="imageInput" accept="image/*" aria-label="Upload image">
+      <div id="uploadError" class="upload-error" aria-live="polite"></div>
+    </div>
+
+    <div id="options" class="hidden">
+      <div class="row">
+        <label>Output filename</label>
+        <input type="text" id="filenameInput" placeholder="image.png">
+      </div>
+      <div class="row-inline">
+        <button id="convertBtn" class="cta">Convert to PNG</button>
+        <button id="resetBtn" class="cta outline">Reset</button>
+      </div>
+    </div>
+
+    <div id="resultSection" class="hidden result-box">
+      <h3>PNG Result</h3>
+      <img id="previewImage" src="" alt="Preview">
+      <div class="meta" id="metaInfo"></div>
+      <button id="downloadBtn" class="cta">Download PNG</button>
+    </div>
+  </section>
+
+  <!-- load script at end of body -->
+  <script src="../js/jpgtopng.js"></script>
+</body>
+</html>

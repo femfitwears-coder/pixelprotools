@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Convert PDF pages to high-quality PNG or JPG images. Fast, free and browser-based PDF to image converter.">
+
+<meta property="og:title" content="PDF to Image Converter — Free Online">
+<meta property="og:description" content="Extract PDF pages as images (PNG/JPG). All processing happens in your browser.">
+<meta property="og:url" content="https://pixelprotools.com/tools/pdf-to-image.html">
+  <title>PDF → Image - PixelProTools</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">PixelProTools</div>
+  </header>
+
+  <section class="tool-container">
+    <h1>PDF → Image</h1>
+    <p>Upload a PDF and extract each page as a PNG image. Client-side conversion (no upload to server).</p>
+
+    <div class="upload-box" id="uploadBox" tabindex="0" role="button">
+      <p id="uploadText">Click or Drag & Drop PDF Here</p>
+      <input type="file" id="pdfInput" accept="application/pdf" aria-label="Upload PDF">
+      <div id="uploadError" class="upload-error" aria-live="polite"></div>
+    </div>
+
+    <div id="pagesList" class="hidden result-box">
+      <h3>Pages (click download to save PNG)</h3>
+      <div id="pagesThumbs" class="thumbs-grid"></div>
+      <div style="margin-top:12px;">
+        <button id="clearBtn" class="cta outline">Clear</button>
+      </div>
+    </div>
+
+    <div id="status" style="margin-top:14px;color:#444;"></div>
+  </section>
+
+  <!-- pdf.js CDN (worker + lib) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.13.216/pdf.min.js"></script>
+  <script>
+    // configure worker path for pdfjs
+    if (window['pdfjsLib']) {
+      window['pdfjsLib'].GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.13.216/pdf.worker.min.js';
+    }
+  </script>
+
+  <script src="../js/pdftoimage.js"></script>
+</body>
+</html>
+<!--                 <p>Convert images to PDF format.</p>
+ -->

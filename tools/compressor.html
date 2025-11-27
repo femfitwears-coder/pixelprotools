@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Compress images online for free. Reduce JPG, PNG, and WEBP image size without losing quality. 100% browser-based secure image compression.">
+
+<meta property="og:title" content="Free Online Image Compressor">
+<meta property="og:description" content="Fast JPG, PNG, WEBP image compressor. No upload — everything runs in your browser.">
+<meta property="og:url" content="https://pixelprotools.com/tools/compressor.html">
+  <title>Image Compressor - PixelProTools</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">PixelProTools</div>
+  </header>
+
+  <section class="tool-container">
+    <h1>Image Compressor</h1>
+    <p>Compress JPG, PNG or WEBP images in the browser. No upload required.</p>
+
+    <div class="upload-box" id="uploadBox" tabindex="0" role="button">
+      <p id="uploadText">Click or Drag & Drop Image Here</p>
+      <input type="file" id="imageInput" accept="image/*" aria-label="Upload image">
+      <div id="uploadError" class="upload-error" aria-live="polite"></div>
+    </div>
+
+    <div id="settings" class="hidden" style="margin-top:16px;">
+      <label>Quality (0.1 - 1):</label>
+      <input type="range" id="qualityRange" min="0.1" max="1" step="0.05" value="0.75">
+      <span id="qualityVal">0.75</span>
+    </div>
+
+    <div id="resultSection" class="hidden result-box" style="margin-top:18px;">
+      <h3>Compressed Image</h3>
+      <div style="max-width:600px;margin:auto">
+        <img id="previewImage" src="" alt="Preview" style="width:100%; border-radius:8px;">
+      </div>
+      <div class="meta" id="metaInfo" style="margin-top:8px;"></div>
+      <div style="margin-top:12px;">
+        <button id="downloadBtn" class="cta">Download Image</button>
+        <button id="downloadOriginalBtn" class="cta outline">Download Original</button>
+      </div>
+    </div>
+  </section>
+
+  <script src="../js/compressor.js"></script>
+</body>
+</html>

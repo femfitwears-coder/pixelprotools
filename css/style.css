@@ -276,3 +276,30 @@ footer a {
 .hidden { display: none; }
 .upload-error { color:#b91c1c; display:none; margin-top:8px; }
 
+/* Fix: ensure image input inside tool card is visible and on top of header */
+.tool-card, .tool-card.large {
+  position: relative;    /* allow z-index */
+  z-index: 5;
+}
+
+/* Ensure file input for image tools is visible and usable */
+.tool-card input[type="file"],
+.tool-card.large input[type="file"],
+[data-image-tool] input[type="file"] {
+  display: block !important;
+  width: 100% !important;
+  height: 44px !important;
+  padding: 8px 10px !important;
+  opacity: 1 !important;
+  position: relative !important;
+  z-index: 10 !important;
+  pointer-events: auto !important;
+  background: #fff;
+  border: 1px solid #e6edf3;
+  border-radius: 8px;
+}
+
+/* If header overlaps entire page, ensure tool-card sits above header */
+.site-header {
+  z-index: 2; /* header still above normal content, but below tool-card which we set higher */
+}

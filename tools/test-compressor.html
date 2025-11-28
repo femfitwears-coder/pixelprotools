@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Test Compressor</title>
+  <style>body{font-family:Arial;padding:20px} .card{max-width:600px} img{max-width:100%;}</style>
+</head>
+<body>
+  <div class="card">
+    <h2>Standalone Test: Upload & Compress</h2>
+    <input id="testInput" type="file" accept="image/*"><br><br>
+    <div id="preview"></div><br>
+    Quality: <input id="q" type="range" min="0.1" max="1" step="0.05" value="0.8"><br><br>
+    <button id="btn">Compress</button>
+    <a id="dl" style="display:none">Download</a>
+    <div id="msg" style="margin-top:10px;color:#333"></div>
+  </div>
+
+<script>
+document.getElementById('testInput').addEventListener('change', function(e){
+  const f = e.target.files[0]; if(!f) return;
+  if(!f.type.startsWith('image/')) return alert('Select image');
+  const url = URL.createObjectURL(f);
+  const img = document.createElement('img'); img.src=url; img.onload=()=>URL.revokeObjectURL(url);
+  const p = document.getElementById('preview'); p.innerHTML=''; p.appendChild(img);
+  window._testFile = f;
+});
+function compressBlob(img, q, type='image/jpeg'){ return new Promise((res,rej)=>{
+  const c = document.createElement('canvas'), ctx=c.getContext('2d');
+  const w=img.naturalWidth, h=img.naturalHeight, ratio=Math.min(1,1200/Math.max(w,h));
+  c.width = Math.round(w*ratio); c.height=Math.round(h*ratio);
+  ctx.drawImage(img,0,0,c.width,c.height);
+  c.toBlob(b=>{ if(!b) rej('no blob'); else res(b); }, type, q);
+}); }
+document.getElementById('btn').addEventListener('click', async ()=>{
+  const img = document.querySelector('#preview img');
+  if(!img){ alert('Upload first'); return; }
+  const q = Number(document.getElementById('q').value);
+  try{
+    const blob = await compressBlob(img,q);
+    const url = URL.createObjectURL(blob);
+    const dl = document.getElementById('dl'); dl.href = url; dl.download = 'test-compressed.jpg'; dl.style.display='inline-block';
+    document.getElementById('msg').textContent = 'Compressed size: ' + Math.round(blob.size/1024) + ' KB';
+  }catch(err){ alert('err '+err); }
+});
+</script>
+
+<script src="/js/compressor.js" defer></script>
+</body>
+</html>
